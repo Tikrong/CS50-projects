@@ -1,0 +1,1 @@
+On the sell screen remove stock symbols of stocks user do not have already

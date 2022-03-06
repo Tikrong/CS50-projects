@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped" style="text-align: left">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for operation in operations %}
+                <tr>
+                    <td>{{ operation["symbol"] }}</td>
+                    <td>{{ operation["shares"] }}</td>
+                    <td> {{ "${:,.2f}".format(operation["price"]) }} </td> <!-- formatting our float output into currency using jinja syntax -->
+                    <td>{{ operation["transacted_at"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

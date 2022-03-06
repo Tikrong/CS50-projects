@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped" style="text-align: left">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock["symbol"] }}</td>
+                    <td>{{ stock["name"] }}</td>
+                    <td>{{ stock["SUM (shares)"] }}</td>
+                    <td> {{ "${:,.2f}".format(stock["price"]) }} </td> <!-- formatting our float output into currency using jinja syntax -->
+                    <td>{{ "${:,.2f}".format(stock["total"]) }}</td>   <!-- formatting our float output into currency using jinja syntax -->
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="4">CASH</td>
+                    <td>{{ "${:,.2f}".format(cash) }}</td>  <!-- formatting our float output into currency using jinja syntax -->
+                </tr>
+        </tbody>
+        <tfoot style="font-weight: bold">
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ "${:,.2f}".format(total) }}</td>     <!-- formatting our float output into currency using jinja syntax -->
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

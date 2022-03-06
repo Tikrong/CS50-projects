@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+        <div>
+            A share of {{name}} ({{symbol}}) costs {{price}}.
+        </div>
+        <div style="margin: 15px;">
+            <a class="btn btn-primary" href="/quote">Go back</a>
+        </div>
+
+
+
+    </form>
+{% endblock %}
